@@ -1,0 +1,26 @@
+{
+  "name": "travel_app",
+  "version": "1.0.0",
+  "description": "WDI Project 3 Travel App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schersh/Travel_app_project_3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/schersh/Travel_app_project_3/issues"
+  },
+  "homepage": "https://github.com/schersh/Travel_app_project_3#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "hbs": "^4.0.0",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.2.9"
+  }
+}
