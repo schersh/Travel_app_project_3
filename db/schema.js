@@ -1,4 +1,5 @@
 var mongoose = require('mongoose')
+var conn = mongoose.connect('mongodb://localhost/travelapp')
 
 var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId

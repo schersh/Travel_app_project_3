@@ -11,7 +11,7 @@ var usersController = require("./controllers/usersController")
 var citiesController = require("./controllers/citiesController")
 var notesController = require("./controllers/notesController")
 // connect mongoose interfaces to reminders mongo db
-mongoose.connect('mongodb://localhost/')
+// mongoose.connect('mongodb://localhost/')
 // invokes express dependency and sets namespace to app
 var app = express()
 // sets view engine to handlebars
