@@ -32,3 +32,4 @@ app.listen(4000, function(){
 // routes for all requests to this express app that map to an action/function
 // in our controllers
 app.get("/users", usersController.index)
+app.get("/")
