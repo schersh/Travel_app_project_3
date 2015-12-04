@@ -5,7 +5,7 @@ var NoteModel = require('../models/note')
 var usersController = {
   index: function(req, res){
     UserModel.find({}, function(err, docs){
-      res.render("user/index", {users: docs})
+      res.render("users/index", {users: docs})
     });
   },
 }

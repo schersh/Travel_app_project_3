@@ -52,6 +52,7 @@ var city6 = new CityModel({
 var users = [sarah, qadriyyah, cassidy]
 var cities = [city1, city2, city3, city4, city5, city6]
 
+var saved = 0;
 
 for(var i = 0; i < users.length; i++){
   users[i].cities.push(cities[i], cities[i+3])
@@ -59,10 +60,12 @@ for(var i = 0; i < users.length; i++){
     if (err) {
       console.log(err)
     } else {
-      console.log("user was saved")
+      console.log("user was saved");
+      saved = saved + 1;
+      if (saved == users.length) {
+        /// SUCCESS!
+        process.exit(0);
+      }
     }
   });
 };
-
-
-/// SUCCESS!

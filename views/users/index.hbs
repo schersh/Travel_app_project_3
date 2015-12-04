@@ -1,2 +1,13 @@
 <h1>Welcome User</h1>
 <!-- Iterates through each author -->
+<!-- {{{currentuser.name}}} -->
+
+{{#each cities}}
+  <div class="city">
+    <div class="cityName"><a href="/city/{{_id}}">{{name}}</a></div>
+    <!-- For each city, it will iterate through their notes-->
+    {{#each notes}}
+      <p class="note">{{body}}</p>
+    {{/each}}
+  </div>
+{{/each}}

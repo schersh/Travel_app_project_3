@@ -4,16 +4,16 @@ var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId
 
 var NoteSchema = new Schema({
-    body: String
+  body: String
 });
 
 var CitySchema = new Schema({
-  body: String,
+  name: String,
   notes: [NoteSchema]
 });
 
 var UserSchema = new Schema({
-  body: String,
+  email: String,
   cities: [CitySchema]
 });
 
