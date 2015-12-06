@@ -31,7 +31,11 @@ app.listen(4000, function(){
 
 // routes for all requests to this express app that map to an action/function
 // in our controllers
-app.get("/users", usersController.index)
 app.get("/", function(req, res){
   res.render("index.hbs")
 })
+
+app.get("/user/:id", usersController.show);
+
+app.get("user/:user_id/city/:city_id", citiesController.show);
+app.post("user/:user_id/city/:city_id/note", citiesController.addNote);
