@@ -33,9 +33,11 @@ app.listen(4000, function(){
 // in our controllers
 app.get("/", function(req, res){
   res.render("index.hbs")
-})
+});
 
 app.get("/user/:id", usersController.show);
 
 app.get("user/:user_id/city/:city_id", citiesController.show);
 app.post("user/:user_id/city/:city_id/note", citiesController.addNote);
+//app.patch("user/:user_id/city/:city_id/note", citiesController.updateNote);
+//app.delete("user/:user_id/:city_id/note", citiesController.removeNote);
