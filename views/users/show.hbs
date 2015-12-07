@@ -2,14 +2,15 @@
   <div class="col s3 blue-grey lighten-4">
   <h5 class="center-align">My Favorite Cities</h5>
   {{#each user.cities}}
-      <div class="center-align"><a href="/user/{{user._id}}/city/{{_id}}">{{name}}</a></div>
+      <div class="container center-align"><a href="/user/{{user._id}}/city/{{_id}}">{{name}}</a></div>
   {{/each}}
   </div>
   <div class="col s9 green lighten-4">
     <div class="row">
-      <blockquote>You are currently logged in as {{user.email}}</blockquote>
+      <blockquote>You are currently logged in as {{user.email}}. Click on one of your favorite cities to view your saved notes and more travel ideas!</blockquote>
     </div>
-    <div class="row"</div>
-      <p "center-align">Click on one of your favorite cities to view your notes or add new notes and travel ideas!</p>
+    <div class="row">
+
+    </div>
   </div>
 </div>
