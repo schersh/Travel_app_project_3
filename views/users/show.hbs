@@ -4,6 +4,14 @@
   {{#each user.cities}}
       <div class="container center-align"><a href="/user/{{user._id}}/city/{{_id}}">{{name}}</a></div>
   {{/each}}
+  <br>
+    <div class="container center-align">
+      <form action="/user/{{user._id}}/city" method="post">
+        <label>Add a New Favorite City</label>
+        <input type="text" name="body">
+        <input type="submit">
+      </form>
+    </div>
   </div>
   <div class="col s9 green lighten-4">
     <div class="row">

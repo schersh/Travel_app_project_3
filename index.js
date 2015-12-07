@@ -36,6 +36,7 @@ app.get("/", function(req, res){
 })
 
 app.get("/user/:id", usersController.show);
-
-app.get("user/:user_id/city/:city_id", citiesController.show);
-app.post("user/:user_id/city/:city_id/note", citiesController.addNote);
+app.get("/user/:user_id/city/:city_id", citiesController.show);
+app.post("/user/:user_id/city/:city_id/note", citiesController.addCity);
+// new city
+app.get("user/:user_id", usersController.addCity)
