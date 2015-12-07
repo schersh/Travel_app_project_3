@@ -8,11 +8,33 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
   </head>
   <body>
-    <!-- header image -->
-    <!-- nav bar -->
+    <img class="responsive-img" src="/images/road.jpg">
+    <nav>
+      <div class="nav-wrapper green darken-3">
+        <a href="/" class="brand-logo">DayTripper</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <!-- need routes here for sign-up and log-in pages -->
+          <li><a href="">Sign-up</a></li>
+          <li><a href="">Log-in</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav>
+      <div class="nav-wrapper green darken-4">
+        <form>
+          <div class="input-field">
+            <input id="search" type="search" required>
+            <label for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form>
+      </div>
+    </nav>
     {{{body}}}
     <!--Import jQuery before materialize.js-->
+
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="/js/materialize.js"></script>
   </body>
+
 </html>
