@@ -12,35 +12,38 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1wEdhjyoxmkh4w0iJfo4jKobPKUMobh8&libraries=places&callback=initialize" async defer></script>
   </head>
   <body>
-    <div class="header">
-        <img class="responsive-img" src="/images/road.jpg">
+      <img class="responsive-img" src="/images/road.jpg">
       <nav>
         <div class="nav-wrapper green darken-3">
-          <a href="/" class="brand-logo">DayTripper</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <a href="/" class="brand-logo">What's up, @pp</a>
+          <ul id="nav-mobile" class="right">
             <!-- need routes here for sign-up and log-in pages -->
             <li><a href="">Sign-up</a></li>
             <li><a href="">Log-in</a></li>
           </ul>
         </div>
       </nav>
-      <nav>
-        <div class="nav-wrapper green darken-4">
-          <form>
-            <div class="input-field">
-              <input id="search" type="search">
-              <input id="searchType" type="textbox">
-              <input id="submit" type="button" value="Search">
-              <label for="search"><i class="material-icons">search</i></label>
-              <i class="material-icons">close</i>
-            </div>
-          </form>
-        </div>
-      </nav>
-    </div>
-    {{{body}}}
-    <!--Import jQuery before materialize.js-->
+      <div class="row">
+        <nav>
+          <div class="nav-wrapper green darken-4">
+            <form>
+              <div class="input-field col s4">
+                <input id="search" type="search">
+                <label for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+              </div>
+              <div class="input-field col s4">
+                <input placeholder="What are you looking for?" id="searchType" type="search">
+              </div>
+              <div class="input-field col s4">
+                <input id="submit" type="button" value="Search">
+              </div>
+            </form>
+          </div>
+        </nav>
+      </div>
 
+    {{{body}}}
 
   </body>
 
