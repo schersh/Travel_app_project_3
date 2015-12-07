@@ -6,6 +6,10 @@
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="/css/materialize.css"  media="screen,projection"/>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/js/map.js"></script>
+    <script type="text/javascript" src="/js/materialize.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1wEdhjyoxmkh4w0iJfo4jKobPKUMobh8&libraries=places&callback=initialize" async defer></script>
   </head>
   <body>
     <div class="header">
@@ -24,7 +28,9 @@
         <div class="nav-wrapper green darken-4">
           <form>
             <div class="input-field">
-              <input id="search" type="search" required>
+              <input id="search" type="search">
+              <input id="searchType" type="textbox">
+              <input id="submit" type="button" value="Search">
               <label for="search"><i class="material-icons">search</i></label>
               <i class="material-icons">close</i>
             </div>
@@ -35,8 +41,7 @@
     {{{body}}}
     <!--Import jQuery before materialize.js-->
 
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="/js/materialize.js"></script>
+
   </body>
 
 </html>
