@@ -14,12 +14,12 @@ var CitySchema = new Schema({
 });
 
 var UserSchema = new Schema({
-  email: String,
+  local : {
+  email        : String,
+  password     : String,
+  },
   cities: [CitySchema]
 });
-
-
-
 
 
 mongoose.model("User", UserSchema)

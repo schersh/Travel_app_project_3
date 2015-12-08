@@ -1,6 +1,7 @@
 // express dependency for our application
 var express = require('express')
 // loads mongoose dependency
+var router = express.Router();
 var mongoose = require('mongoose')
 // loads dependency for middleware for paramters
 var bodyParser = require('body-parser')
@@ -35,10 +36,28 @@ app.get("/", function(req, res){
   res.render("index.hbs")
 })
 
-app.get("/user/:id", usersController.show);
+function authenticatedUser(req, res, next) {
+  // If the user is authenticated, then we continue the execution
+  if (req.isAuthenticated()) return next();
 
-app.get("user/:user_id/city/:city_id", citiesController.show);
-app.post("user/:user_id/city/:city_id/note", citiesController.addNote);
+  // Otherwise the request is always redirected to the home page
+  res.redirect('/');
+}
+
+router.route('/signup')
+  .get(usersController.getSignup)
+  .post(usersController.postSignup);
+
+router.route('/login')
+  .get(usersController.getLogin)
+  .post(usersController.postLogin);
+
+router.route("/logout")
+  .get(usersController.getLogout);
+
+router.route("/secret")
+   .get(authenticatedUser, usersController.secret);
+
 
 var passport    = require('passport');
 
@@ -46,3 +65,5 @@ app.use(function (req, res, next) {
     res.locals.currentUser = req.user;
     next();
   });
+
+module.exports = router; 
