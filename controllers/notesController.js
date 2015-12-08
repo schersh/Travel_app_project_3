@@ -7,7 +7,22 @@ var notesController = { //confirm about index
       res.render("notes/index", {notes: docs})
     });
   },
-
+  new: function(req, res){
+    res.render("notes/new")
+  },
+  create: function(req, res){
+    var note = new NoteModel({title: req.body.title})
+    note.save(function(err){
+      if (!err){
+        res.redirect("notes")
+      }
+    })
+  },
+  show: function(req, res){
+    NoteModel.findById(req.params.id, function(err, doc){
+      res.render("notes/show", {note: doc});
+    })
+  },
   edit: function(req, res){
     NoteModel.findById(req.params.id, function(err, doc){
       res.render("notes/edit", {note: doc})

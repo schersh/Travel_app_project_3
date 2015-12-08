@@ -42,7 +42,13 @@ app.get("/cities/new", citiesController.new);
 app.post("/cities", citiesController.create);
 app.get("/cities/:city_id/edit", citiesController.edit);
 app.put("/cities/:city_id", citiesController.update)
+app.delete("/cities/city_id", citiesController.delete);
 app.post("/city/:city_id/notes", citiesController.addNote);
+app.get("/notes/new", notesController.new);
+app.post("/notes", notesController.create);
+app.get("/notes/:note_id/edit", notesController.edit);
+app.put("/notes/:note_id", notesController.update);
+app.delete("/notes/note_id", notesController.delete);
 
 
 //app.patch("user/:user_id/city/:city_id/note", citiesController.updateNote);
