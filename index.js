@@ -33,10 +33,24 @@ app.listen(4000, function(){
 // in our controllers
 app.get("/", function(req, res){
   res.render("index.hbs")
-})
-
+});
 app.get("/user/:id", usersController.show);
 app.get("/user/:user_id/city/:city_id", citiesController.show);
-app.post("/user/:user_id/city/:city_id/note", citiesController.addCity);
-// new city
-app.get("user/:user_id", usersController.addCity)
+app.get("/cities/new", citiesController.new);
+app.post("/cities", citiesController.create);
+app.get("/cities/:city_id/edit", citiesController.edit);
+app.put("/cities/:city_id", citiesController.update)
+app.delete("/cities/city_id", citiesController.delete);
+app.post("/city/:city_id/notes", citiesController.addNote);
+app.get("/notes/new", notesController.new);
+app.post("/notes", notesController.create);
+app.get("/notes/:note_id/edit", notesController.edit);
+app.put("/notes/:note_id", notesController.update);
+app.delete("/notes/note_id", notesController.delete);
+
+// use nested routes?
+//app.patch("user/:user_id/city/:city_id/note", citiesController.updateNote);
+//app.delete("user/:user_id/:city_id/note", citiesController.removeNote);
+// app.get("/user/:user_id/city/:city_id", citiesController.show);
+// app.post("/user/:user_id/city/:city_id/note", citiesController.addCity);
+// app.get("user/:user_id", usersController.addCity)
