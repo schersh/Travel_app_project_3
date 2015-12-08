@@ -37,7 +37,13 @@ app.get("/", function(req, res){
 
 app.get("/user/:id", usersController.show);
 
-app.get("user/:user_id/city/:city_id", citiesController.show);
-app.post("user/:user_id/city/:city_id/note", citiesController.addNote);
+app.get("/user/:user_id/city/:city_id", citiesController.show);
+app.get("/cities/new", citiesController.new);
+app.post("/cities", citiesController.create);
+app.get("/cities/:city_id/edit", citiesController.edit);
+app.put("/cities/:city_id", citiesController.update)
+app.post("/city/:city_id/notes", citiesController.addNote);
+
+
 //app.patch("user/:user_id/city/:city_id/note", citiesController.updateNote);
 //app.delete("user/:user_id/:city_id/note", citiesController.removeNote);

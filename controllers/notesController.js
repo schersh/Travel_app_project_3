@@ -1,4 +1,5 @@
 var NoteModel = require("../models/note");
+var CityModel = require("../models/city");
 
 var notesController = { //confirm about index
   index: function(req, res){
