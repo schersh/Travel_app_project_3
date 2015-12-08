@@ -39,3 +39,10 @@ app.get("/user/:id", usersController.show);
 
 app.get("user/:user_id/city/:city_id", citiesController.show);
 app.post("user/:user_id/city/:city_id/note", citiesController.addNote);
+
+var passport    = require('passport');
+
+app.use(function (req, res, next) {
+    res.locals.currentUser = req.user;
+    next();
+  });
