@@ -56,7 +56,6 @@ var citiesController = {
       })
     })
   },
-
 }
 
 module.exports = citiesController;

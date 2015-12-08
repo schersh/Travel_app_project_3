@@ -11,5 +11,18 @@ var usersController = {
 };
 
 
+// neccessary to add city via user model?
+//   addCity: function(req, res){
+//     UserModel.findById(req.params.id, function(err, docs){
+//       docs.notes.push(new CityModel({body: req.body.body}))
+//       docs.save(function(err){
+//         if(!err){
+//           res.redirect("/user/" + req.params.id)
+//         }
+//       });
+//     });
+//   }
+// }
+
 
 module.exports = usersController;
