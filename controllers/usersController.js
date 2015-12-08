@@ -43,7 +43,7 @@ var usersController = {
 	  response.redirect('/');
 	}
 
-  function secret(request, response){
+  function userPage(request, response){
     response.render("users/show", {user: docs});
   }
 
@@ -54,5 +54,5 @@ module.exports = {
   getSignup: getSignup,
   postSignup: postSignup,
   getLogout: getLogout,
-  secret: secret
+  userPage: userPage
 };

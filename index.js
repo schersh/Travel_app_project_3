@@ -43,21 +43,12 @@ function authenticatedUser(req, res, next) {
   // Otherwise the request is always redirected to the home page
   res.redirect('/');
 }
-
-router.route('/signup')
-  .get(usersController.getSignup)
-  .post(usersController.postSignup);
-
-router.route('/login')
-  .get(usersController.getLogin)
-  .post(usersController.postLogin);
-
-router.route("/logout")
-  .get(usersController.getLogout);
-
-router.route("/secret")
-   .get(authenticatedUser, usersController.secret);
-
+app.get("/signup", usersController.getSignup);
+app.post("/signup", usersController.postSignup);
+app.get("/login", usersController.getLogin);
+app.post("/login", usersController.postLogin);
+app.get("/logout", usersController.getLogout);
+app.get("/user/{{_id}}", usersController.userPage);
 
 var passport    = require('passport');
 
@@ -66,4 +57,4 @@ app.use(function (req, res, next) {
     next();
   });
 
-module.exports = router; 
+module.exports = router;
