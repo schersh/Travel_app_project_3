@@ -64,12 +64,12 @@
            console.error(status);
            return;
          }
-         infoWindow.setContent(result.name);
+         var placeUrl = result.website;
+         infoWindow.setContent(result.name + "<br />" + result.formatted_address + "<br />" + result.formatted_phone_number + "<br />" + "Google Rating: " + result.rating + "<br />" + "Price Level: " + result.price_level + "<br />" + "<a href=\"" + placeUrl + "\">" + placeUrl + "</a>" + "<br />" + "Most Helpful Review: " + result.reviews[0].text + "<br />");
          infoWindow.open(map, marker);
        });
      });
    }
-
    // Add a custom marker on the GA building.
    var gaMarker = new google.maps.Marker({
      icon: "./images/General_Assembly_logo.png",
