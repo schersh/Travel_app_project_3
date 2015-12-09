@@ -13,9 +13,9 @@ var usersController = {
   },
 }
   function getSignup(request, response) {
-    response.render("signup.hbs", { message: request.flash('signupMessage') });
+    response.render("signup.hbs");
   }
-
+// flash is broken { message: request.flash('signupMessage') }
   function postSignup(request, response) {
     var signupStrategy = passport.authenticate('local-signup', {
       successRedirect : '/',
@@ -26,8 +26,9 @@ var usersController = {
   }
 
   function getLogin(request, response) {
-    response.render('login.hbs', { message: request.flash('loginMessage') });
+    response.render('login.hbs');
   }
+// flash is broken { message: request.flash('loginMessage') }
 
   function postLogin(request, response) {
     var loginProperty = passport.authenticate('local-login', {

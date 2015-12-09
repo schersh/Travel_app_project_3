@@ -2,11 +2,9 @@ var LocalStrategy   = require('passport-local').Strategy;
 var User            = require('../models/user');
 
  module.exports = function(passport) {
-
     passport.serializeUser(function(user, callback) {
       callback(null, user.id);
     });
-
     passport.deserializeUser(function(id, callback) {
       User.findById(id, function(err, user) {
           callback(err, user);
@@ -59,7 +57,7 @@ var User            = require('../models/user');
 
 	      return callback(null, user);
 	    });
-	  }));    
+	  }));
    }));
   User.methods.encrypt = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
@@ -68,5 +66,5 @@ var User            = require('../models/user');
   User.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.local.password);
   };
-  
+
 };

@@ -23,6 +23,8 @@ app.use(express.static(__dirname + '/public'))
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+
+
 // app server located on port 4000
 app.listen(4000, function(){
   console.log("app listening on port 4000")
