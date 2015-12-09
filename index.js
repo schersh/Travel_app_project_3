@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 app.use(express.static(__dirname + '/public'));
 app.use(passport.initialize());
-app.use(session({secret: "yo"}));
+app.use(session({secret: "yo", resave: true, saveUninitialized: true}));
 app.use(flash());
 
 // loads controllers
@@ -45,7 +45,7 @@ app.post("/signup", usersController.postSignup);
 app.get("/login", usersController.getLogin);
 app.post("/login", usersController.postLogin);
 app.get("/logout", usersController.getLogout);
-app.get("/user/{{_id}}", usersController.userPage);
+app.get(('/user/' + user.id), usersController.show);
 
 // app server located on port 4000
 app.listen(4000, function(){
