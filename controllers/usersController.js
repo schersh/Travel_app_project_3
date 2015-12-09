@@ -18,7 +18,8 @@ var usersController = {
 
   function postSignup(request, response, next) {
     var signupStrategy = passport.authenticate('local-signup', {
-      successRedirect : '/user/{{_id}}',
+      // TODO change successRedirect : ('/user/' + user.id),
+      successRedirect : '/',
       failureRedirect : '/signup',
       failureFlash : true
     });
@@ -32,7 +33,7 @@ var usersController = {
   function postLogin(request, response, next) {
     var loginProperty = passport.authenticate('local-login', {
       // TODO change successRedirect : ('/user/' + user.id),
-      successRedirect : ('/user'),
+      successRedirect : ('/'),
       failureRedirect : '/login',
       failureFlash : true
     });
@@ -41,6 +42,7 @@ var usersController = {
 
 	function getLogout(request, response) {
 	  request.logout();
+    request.session.destroy();
 	  response.redirect('/');
 	}
 
