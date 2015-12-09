@@ -10,7 +10,6 @@ var User            = require('../models/user');
           callback(err, user);
       });
     });
-
    passport.use('local-signup', new LocalStrategy({
      usernameField : 'email',
      passwordField : 'password',
@@ -59,12 +58,4 @@ var User            = require('../models/user');
 	    });
 	  }));
    }));
-  User.methods.encrypt = function(password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-  };
-
-  User.methods.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.local.password);
-  };
-
 };

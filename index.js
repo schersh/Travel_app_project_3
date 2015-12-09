@@ -24,6 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+require('./config/passport')(passport);
 
 // app server located on port 4000
 app.listen(4000, function(){

@@ -1,4 +1,5 @@
 var mongoose = require('mongoose')
+var bcrypt   = require('bcrypt-nodejs');
 var conn = mongoose.connect('mongodb://localhost/travelapp')
 
 var Schema = mongoose.Schema,
@@ -15,12 +16,19 @@ var CitySchema = new Schema({
 
 var UserSchema = new Schema({
   local : {
-  email        : String,
-  password     : String,
+    email        : String,
+    password     : String,
   },
   cities: [CitySchema]
 });
 
+UserSchema.methods.encrypt = function(password) {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+UserSchema.methods.validPassword = function(password) {
+  return bcrypt.compareSync(password, this.local.password);
+};
 
 mongoose.model("User", UserSchema)
 mongoose.model("City", CitySchema)

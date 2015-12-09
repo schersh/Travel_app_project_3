@@ -20,7 +20,7 @@ var usersController = {
     var signupStrategy = passport.authenticate('local-signup', {
       successRedirect : '/',
       failureRedirect : '/signup',
-      failureFlash : true
+      // failureFlash : true
     });
     return signupStrategy(request, response);
   }
