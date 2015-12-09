@@ -13,28 +13,27 @@ var usersController = {
   },
 }
   function getSignup(request, response) {
-    response.render("signup.hbs");
+    response.render("signup.hbs", { message: request.flash('signupMessage') });
   }
-// flash is broken { message: request.flash('signupMessage') }
+
   function postSignup(request, response, next) {
     var signupStrategy = passport.authenticate('local-signup', {
       successRedirect : '/',
       failureRedirect : '/signup',
-      // failureFlash : true
+      failureFlash : true
     });
     return signupStrategy(request, response, next);
   }
 
   function getLogin(request, response) {
-    response.render('login.hbs');
+    response.render('login.hbs', { message: request.flash('loginMessage') } );
   }
-// flash is broken { message: request.flash('loginMessage') }
 
-  function postLogin(request, response, next) { // changed by chris
+  function postLogin(request, response, next) {
     var loginProperty = passport.authenticate('local-login', {
       successRedirect : '/',
       failureRedirect : '/login',
-      // failureFlash : true
+      failureFlash : true
     });
     return loginProperty(request, response, next);
   }

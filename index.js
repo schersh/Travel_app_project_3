@@ -1,10 +1,10 @@
 // loads dependencies
 var express     = require('express')
+var session      = require('express-session');
 var flash       = require('connect-flash');
 var mongoose = require('mongoose')
 var bodyParser = require('body-parser')
 var methodOverride = require('method-override')
-var session      = require('express-session');
 // loads controllers
 var usersController = require("./controllers/usersController")
 var citiesController = require("./controllers/citiesController")
