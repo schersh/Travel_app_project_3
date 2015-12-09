@@ -10,6 +10,7 @@ var passport    = require('passport');
 require('./config/passport')(passport);
 
 app.use(function (req, res, next) {
+    global.currentUser = req.user;
     res.locals.currentUser = req.user;
     next();
   });
@@ -29,7 +30,8 @@ var citiesController = require("./controllers/citiesController");
 var notesController = require("./controllers/notesController");
 
 app.get("/", function(req, res){
-  res.render("index.hbs")
+  console.log(req);
+  res.render("index.hbs");
 });
 
 function authenticatedUser(req, res, next) {

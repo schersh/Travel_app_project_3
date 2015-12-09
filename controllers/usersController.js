@@ -34,10 +34,11 @@ var usersController = {
   function postLogin(request, response, next) {
     var loginProperty = passport.authenticate('local-login', {
       // TODO change successRedirect : ('/user/' + user.id),
-      successRedirect : ('/'),
+      successRedirect : '/',
       failureRedirect : '/login',
       failureFlash : true
     });
+    console.log(request);
     return loginProperty(request, response, next);
   }
 

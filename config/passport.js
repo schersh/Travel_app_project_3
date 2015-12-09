@@ -5,12 +5,14 @@ var User            = require('../models/user');
     passport.serializeUser(function(user, callback) {
       callback(null, user.id);
     });
+
     passport.deserializeUser(function(id, callback) {
       User.findById(id, function(err, user) {
           callback(err, user);
       });
     });
-   passport.use('local-signup', new LocalStrategy({
+
+    passport.use('local-signup', new LocalStrategy({
      usernameField : 'email',
      passwordField : 'password',
      passReqToCallback : true
@@ -34,6 +36,7 @@ var User            = require('../models/user');
     });
       }
     });
+  }));
 
   passport.use('local-login', new LocalStrategy({
     usernameField : 'email',
@@ -53,8 +56,8 @@ var User            = require('../models/user');
 	      if (!user.validPassword(password)) {
 	        return callback(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
 	      }
+        console.log(user);
 	      return callback(null, user);
 	    });
 	  }));
-   }));
 };
