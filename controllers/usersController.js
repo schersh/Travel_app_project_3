@@ -16,13 +16,13 @@ var usersController = {
     response.render("signup.hbs");
   }
 // flash is broken { message: request.flash('signupMessage') }
-  function postSignup(request, response) {
+  function postSignup(request, response, next) {
     var signupStrategy = passport.authenticate('local-signup', {
       successRedirect : '/',
       failureRedirect : '/signup',
       // failureFlash : true
     });
-    return signupStrategy(request, response);
+    return signupStrategy(request, response, next);
   }
 
   function getLogin(request, response) {
@@ -30,13 +30,13 @@ var usersController = {
   }
 // flash is broken { message: request.flash('loginMessage') }
 
-  function postLogin(request, response) {
+  function postLogin(request, response, next) { // changed by chris
     var loginProperty = passport.authenticate('local-login', {
       successRedirect : '/',
       failureRedirect : '/login',
-      failureFlash : true
+      // failureFlash : true
     });
-    return loginProperty(request, response);
+    return loginProperty(request, response, next);
   }
 
 	function getLogout(request, response) {

@@ -1,5 +1,4 @@
 // loads dependencies
-var passport    = require('passport');
 var express     = require('express')
 var flash       = require('connect-flash');
 var mongoose = require('mongoose')
@@ -15,6 +14,14 @@ var notesController = require("./controllers/notesController")
 // invokes express dependency and sets namespace to app
 var app = express()
 
+var passport    = require('passport');
+require('./config/passport')(passport);
+
+app.use(function (req, res, next) {
+    res.locals.currentUser = req.user;
+    next();
+  });
+
 app.set("view engine", "hbs")
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}))
@@ -24,7 +31,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-require('./config/passport')(passport);
+
 
 // app server located on port 4000
 app.listen(4000, function(){
@@ -50,10 +57,3 @@ app.get("/login", usersController.getLogin);
 app.post("/login", usersController.postLogin);
 app.get("/logout", usersController.getLogout);
 app.get("/user/{{_id}}", usersController.userPage);
-
-var passport    = require('passport');
-
-app.use(function (req, res, next) {
-    res.locals.currentUser = req.user;
-    next();
-  });

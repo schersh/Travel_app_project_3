@@ -47,13 +47,14 @@ var User            = require('../models/user');
 
 	      // If no user is found
 	      if (!user) {
-	        return callback(null, false, req.flash('loginMessage', 'No user found.'));
+	        return callback(null, false);
 	      }
+        // flash broken req.flash('loginMessage', 'No user found.')
 	      // Wrong password
 	      if (!user.validPassword(password)) {
-	        return callback(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+	        return callback(null, false);
 	      }
-
+        // flash broken req.flash('loginMessage', 'Oops! Wrong password.')
 	      return callback(null, user);
 	    });
 	  }));
