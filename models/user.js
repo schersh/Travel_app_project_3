@@ -1,7 +1,7 @@
 require("../db/schema")
 var mongoose = require('mongoose')
 
-var UserModel = mongoose.model("User")
+var User = mongoose.model("User")
 
 
-module.exports = UserModel
+module.exports = User
