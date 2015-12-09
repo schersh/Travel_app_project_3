@@ -18,11 +18,12 @@ var User            = require('../models/user');
      passReqToCallback : true
    }, function(req, email, password, callback) {
     User.findOne({ 'local.email' :  email }, function(err, user) {
-      if (err) return callback(err);
-
+      if (err) {
+        return callback(err);
+      }
       // If there already is a user with this email
       if (user) {
-    return callback(null, false, req.flash('signupMessage', 'This email is already used.'));
+        return callback(null, false, req.flash('signupMessage', 'This email is already used.'));
       } else {
       // There is no email registered with this emai
     // Create a new user
@@ -50,13 +51,16 @@ var User            = require('../models/user');
 
 	      // If no user is found
 	      if (!user) {
+          console.log("**************************************")
+          console.log("user not found")
 	        return callback(null, false, req.flash('loginMessage', 'No user found.'));
 	      }
 	      // Wrong password
 	      if (!user.validPassword(password)) {
 	        return callback(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
 	      }
-        console.log(user);
+        console.log("**************************************")
+        console.log("found user")
 	      return callback(null, user);
 	    });
 	  }));

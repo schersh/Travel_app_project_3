@@ -33,7 +33,7 @@ var usersController = {
 
   function postLogin(request, response, next) {
     var loginProperty = passport.authenticate('local-login', {
-      // TODO change successRedirect : ('/user/' + user.id),
+      // TODO change successRedirect : ('/user/' + req.user.id),
       successRedirect : '/',
       failureRedirect : '/login',
       failureFlash : true

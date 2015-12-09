@@ -9,20 +9,21 @@ var app = express();
 var passport    = require('passport');
 require('./config/passport')(passport);
 
+
+app.use(express.static(__dirname + '/public'));
+app.set("view engine", "hbs");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(methodOverride('_method'));
+app.use(session({secret: "yo", resave: true, saveUninitialized: true}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 app.use(function (req, res, next) {
     global.currentUser = req.user;
     res.locals.currentUser = req.user;
     next();
   });
-
-app.set("view engine", "hbs");
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(methodOverride('_method'));
-app.use(express.static(__dirname + '/public'));
-app.use(passport.initialize());
-app.use(session({secret: "yo", resave: true, saveUninitialized: true}));
-app.use(flash());
 
 // loads controllers
 var usersController = require("./controllers/usersController");
@@ -30,17 +31,17 @@ var citiesController = require("./controllers/citiesController");
 var notesController = require("./controllers/notesController");
 
 app.get("/", function(req, res){
-  console.log(req);
-  res.render("index.hbs");
+  console.log(global.currentUser);
+  res.render("index.hbs")
 });
 
-function authenticatedUser(req, res, next) {
-  // If the user is authenticated, then we continue the execution
-  if (req.isAuthenticated()) return next();
-
-  // Otherwise the request is always redirected to the home page
-  res.redirect('/');
-};
+// function authenticatedUser(req, res, next) {
+//   // If the user is authenticated, then we continue the execution
+//   if (req.isAuthenticated()) return next();
+//
+//   // Otherwise the request is always redirected to the home page
+//   res.redirect('/');
+// };
 
 app.get("/signup", usersController.getSignup);
 app.post("/signup", usersController.postSignup);
