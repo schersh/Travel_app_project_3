@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 app.use(express.static(__dirname + '/public'));
 app.use(passport.initialize());
-app.use(passport.session({secret: "yo"}));
+app.use(session({secret: "yo"}));
 app.use(flash());
 
 // loads controllers
