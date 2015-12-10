@@ -2,23 +2,6 @@
 // connects us to the reminders database in mongo
 require("./schema");
 var mongoose = require('mongoose');
-var uriUtil = require('mongodb-uri');
-
-var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
-                replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
-
-var mongodbUri = 'mongodb://cajam:password@ds027825.mongolab.com:27825/travelapp';
-var mongooseUri = uriUtil.formatMongoose(mongodbUri);
-
-
-mongoose.connect(mongooseUri, options);
-var conn = mongoose.connection;
-
-conn.on('error', console.error.bind(console, 'connection error:'));
-
-conn.once('open', function() {
-  // Wait for the database connection to establish, then start the app.
-});
 
 // require our model definitions we defined earlier
 var UserModel = require("../models/user")

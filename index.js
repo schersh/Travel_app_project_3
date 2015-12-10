@@ -9,6 +9,15 @@ var app = express();
 var passport    = require('passport');
 require('./config/passport')(passport);
 
+// mongoose.connect("mongodb://localhost/travelapp");
+mongoose.connect('mongodb://cajam:password@ds027825.mongolab.com:27825/travelapp)';
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connecton error...'));
+db.once('open', function callback(){
+  console.log('travelapp db has been opened by cassidy');
+});
+
+
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "hbs");
 app.use(bodyParser.json());
@@ -51,7 +60,6 @@ app.get("/logout", usersController.getLogout);
 app.get("/user/:userId", usersController.show);
 // app.get(authenticatedUser, usersController.profilePage);
 
-var port = process.env.PORT || 27825;
-app.listen(port, function() {
-console.log("Listening on " + port);
-});
+var port = process.env.PORT || 3000;
+app.listen(port);
+console.log("Listening on port " + port + "...");
