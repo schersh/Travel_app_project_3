@@ -1,4 +1,5 @@
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
+var uriUtil = require('mongodb-uri');
 var bcrypt   = require('bcrypt-nodejs');
 
 var Schema = mongoose.Schema,

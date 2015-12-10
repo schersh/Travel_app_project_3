@@ -9,9 +9,6 @@ var app = express();
 var passport    = require('passport');
 require('./config/passport')(passport);
 
-var mongodbUri = 'mongodb://cajam:password@ds027825.mongolab.com:27825/travelapp';
-var conn = mongoose.connect(process.env.MONGOLAB_URI || mongodbUri);
-
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "hbs");
 app.use(bodyParser.json());
