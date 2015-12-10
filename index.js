@@ -52,6 +52,11 @@ app.get("/user/:userId", usersController.show);
 // app.get(authenticatedUser, usersController.profilePage);
 
 // app server located on port 4000
-app.listen(process.env.PORT || 4000), function(){
-  console.log("app listening on port 4000")
-})
+// app.listen(process.env.PORT || 4000), function(){
+//   console.log("app listening on port 4000")
+// })
+
+var port = process.env.PORT || 3000;
+app.listen(port, function() {
+console.log("Listening on " + port);
+});
