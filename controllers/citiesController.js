@@ -15,7 +15,7 @@ var citiesController = {
     var city = new CityModel({name: req.body.name})
     city.save(function(err){
       if (!err){
-        res.redirect("authors")
+        res.redirect("/user/show")
       }
     })
   },
