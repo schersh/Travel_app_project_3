@@ -9,6 +9,8 @@ var app = express();
 var passport    = require('passport');
 require('./config/passport')(passport);
 
+var mongodbUri = 'mongodb://cajam:password@ds027825.mongolab.com:27825/travelapp';
+var conn = mongoose.connect(process.env.MONGOLAB_URI || mongodbUri);
 
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "hbs");
@@ -51,11 +53,6 @@ app.get("/logout", usersController.getLogout);
 // TODO change usersController.show successfully to '/user/{{_id}}'
 app.get("/user/:userId", usersController.show);
 // app.get(authenticatedUser, usersController.profilePage);
-
-// app server located on port 4000
-// app.listen(process.env.PORT || 4000), function(){
-//   console.log("app listening on port 4000")
-// })
 
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
