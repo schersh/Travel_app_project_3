@@ -49,7 +49,8 @@ app.get("/login", usersController.getLogin);
 app.post("/login", usersController.postLogin);
 app.get("/logout", usersController.getLogout);
 // TODO change usersController.show successfully to '/user/{{_id}}'
-// app.get("/user/{{currentUser._id}}", usersController.show);
+app.get("/user/:userId", usersController.show);
+// app.get(authenticatedUser, usersController.profilePage);
 
 // app server located on port 4000
 app.listen(4000, function(){
