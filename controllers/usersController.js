@@ -12,17 +12,6 @@ var passport = require("passport")
     });
   }
 
-  function addCity(req, res) {
-    UserModel.findById(req.params.id, function(err, docs){
-      docs.notes.push(new CityModel({body: req.body.body}))
-      docs.save(function(err){
-        if(!err){
-          res.redirect("/user/" + req.params.id)
-        }
-      });
-    });
-  }
-
   function getSignup(request, response) {
     response.render("signup.hbs", { message: request.flash('signupMessage') });
   }
@@ -61,6 +50,5 @@ module.exports = {
   getSignup: getSignup,
   postSignup: postSignup,
   getLogout: getLogout,
-  show: show,
-  addCity: addCity
+  show: show
 };

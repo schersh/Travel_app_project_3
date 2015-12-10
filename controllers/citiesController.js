@@ -12,17 +12,21 @@ var citiesController = {
     res.render("cities/new")
   },
   create: function(req, res){
-    var city = new CityModel({name: req.body.name})
-    city.save(function(err){
-      if (!err){
-        res.redirect("/user/show")
+    var currentUser = req.user.local; 
+    currentUser.local.cities.push(
+    newCity = new CityModel({name: req.body.name}))
+    currentUser.save(function(err){
+      if(!err){
+        console.log("Saved");
+      } else {
+        console.log(err);
       }
-    })
-  },
-  show: function(req, res){
-    CityModel.findById(req.params.id, function(err, doc){
-      res.render("cities/show", {city: doc})
-    })
+    });
+    newCity.save(function(err){
+      if (!err){
+        res.redirect("/user/" + req.params.id)
+      }
+    });
   },
   edit: function(req, res){
     CityModel.findById(req.params.id, function(err, doc){

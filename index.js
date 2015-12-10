@@ -36,10 +36,10 @@ app.get("/", function(req, res){
 });
 // Routes for CRUD actions
 app.get("/user/:id", usersController.show);
-app.get("/user/:user_id/city/:city_id", citiesController.show);
-app.get("/user/{{user._id}}/city", citiesController.new);
-app.post("/user/{{user._id}}/city", citiesController.create);
-app.get("/cities/{{:city_id}}/edit", citiesController.edit);
+app.get("/city", citiesController.show);
+// app.get("/city", citiesController.new);
+app.post("/cities", citiesController.create);
+app.get("/cities/edit", citiesController.edit);
 app.put("/cities/:city_id", citiesController.update)
 app.delete("/cities/city_id", citiesController.delete);
 app.post("/city/:city_id/notes", citiesController.addNote);

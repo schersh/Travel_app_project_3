@@ -7,7 +7,7 @@
   {{/each}}
   <br>
     <div class="container center-align">
-      <form action="/city" method="post">
+      <form action="/cities" method="post">
         <label>Add a New Favorite City</label>
         <input type="text" name="body">
         <input type="submit">
@@ -21,7 +21,7 @@
     <!-- For each city, it will iterate through their notes-->
     <div class="notes-show-each">
     <h5 class="container center-align">Notes for {{currentUser.city.name}}</h2>
-    {{#each currentUser.city.notes}}
+    {{#each currentUser.cities.notes}}
       <p class="note">{{body}}</p>
     {{/each}}
     </div>
