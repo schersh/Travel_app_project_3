@@ -51,7 +51,7 @@ app.get("/logout", usersController.getLogout);
 app.get("/user/:userId", usersController.show);
 // app.get(authenticatedUser, usersController.profilePage);
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 27825;
 app.listen(port, function() {
 console.log("Listening on " + port);
 });
