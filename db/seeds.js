@@ -2,6 +2,7 @@
 // connects us to the reminders database in mongo
 require("./schema");
 var mongoose = require('mongoose');
+var db = mongoose.connection;
 
 // require our model definitions we defined earlier
 var UserModel = require("../models/user")

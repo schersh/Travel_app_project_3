@@ -9,6 +9,7 @@ var app = express();
 var passport    = require('passport');
 require('./config/passport')(passport);
 
+
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "hbs");
 app.use(bodyParser.json());
