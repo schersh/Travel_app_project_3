@@ -1,7 +1,8 @@
 // requires mongoose dependencies
-var mongoose = require('mongoose')
 // connects us to the reminders database in mongo
 require("./schema");
+var mongoose = require('mongoose');
+
 // require our model definitions we defined earlier
 var UserModel = require("../models/user")
 var CityModel = require("../models/city")

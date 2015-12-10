@@ -3,28 +3,11 @@ var express     = require('express')
 var session      = require('express-session');
 var flash       = require('connect-flash');
 var mongoose = require('mongoose');
-var uriUtil = require('mongodb-uri');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var app = express();
 var passport    = require('passport');
 require('./config/passport')(passport);
-
-var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
-                replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
-
-var mongodbUri = 'mongodb://user:pass@host:port/db';
-var mongooseUri = uriUtil.formatMongoose(mongodbUri);
-
-
-mongoose.connect(mongooseUri, options);
-var conn = mongoose.connection;
-
-conn.on('error', console.error.bind(console, 'connection error:'));
-
-conn.once('open', function() {
-  // Wait for the database connection to establish, then start the app.
-});
 
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "hbs");
