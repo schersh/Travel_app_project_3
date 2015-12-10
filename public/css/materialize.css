@@ -5129,7 +5129,8 @@ nav ul a span.badge {
       left: 16.66667%; }
     .row .col.s3 {
       width: 25%;
-      margin-left: 0; }
+      margin-left: 0;
+      min-height: 200px;}
     .row .col.offset-s3 {
       margin-left: 25%; }
     .row .col.pull-s3 {
@@ -5183,7 +5184,8 @@ nav ul a span.badge {
       left: 66.66667%; }
     .row .col.s9 {
       width: 75%;
-      margin-left: 0; }
+      margin-left: 0;
+      min-height: 200px;}
     .row .col.offset-s9 {
       margin-left: 75%; }
     .row .col.pull-s9 {
@@ -5448,7 +5450,7 @@ nav {
     position: relative;
     height: 100%; }
     nav .nav-wrapper i {
-      display: block;
+      display: inline;
       font-size: 2rem; }
   @media only screen and (min-width : 993px) {
     nav a.button-collapse {
