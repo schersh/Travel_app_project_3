@@ -1,8 +1,7 @@
 var mongoose = require('mongoose')
 var bcrypt   = require('bcrypt-nodejs');
-// var conn = mongoose.connect('mongodb://localhost/travelapp')
 
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/tldr-history');
+var conn = mongoose.connect(processs.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/');
 
 var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId
