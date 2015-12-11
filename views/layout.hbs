@@ -10,45 +10,49 @@
     <script type="text/javascript" src="/js/map.js"></script>
     <script type="text/javascript" src="/js/materialize.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1wEdhjyoxmkh4w0iJfo4jKobPKUMobh8&libraries=places&callback=initialize" async defer></script>
+    <script type="text/javascript" src="/js/models/forecast.js"></script>
+    <script type="text/javascript" src="/js/views/forecast.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
   </head>
   <body>
     <div class="header">
         <img class="responsive-img" src="/images/road.jpg">
     </div>
+      <nav>
+        <div class="nav-wrapper green darken-3">
+          <a href="/" class="brand-logo">What's up, @pp?</a>
+          <ul id="nav-mobile" class="right">
+            <li><a href="/">Map</a></li>
+            {{#if currentUser}}
+              <li><a href="/user/{{currentUser._id}}">My Profile</a></li>
+              <li><a href="/logout">Log-out</a></li>
+            {{else}}
+              <li><a href="/signup">Sign-up</a></li>
+              <li><a href="/login">Log-in</a></li>
+            {{/if}}
+          </ul>
+        </div>
+      </nav>
+      <div class="row">
         <nav>
-          <div class="nav-wrapper green darken-3">
-            <a href="/" class="brand-logo">What's up, @pp?</a>
-            <ul id="nav-mobile" class="right">
-              <li><a href="/">Map</a></li>
-              {{#if currentUser}}
-                <li><a href="/user/{{currentUser._id}}">My Profile</a></li>
-                <li><a href="/logout">Log-out</a></li>
-              {{else}}
-                <li><a href="/signup">Sign-up</a></li>
-                <li><a href="/login">Log-in</a></li>
-              {{/if}}
-            </ul>
+          <div class="nav-wrapper green darken-4">
+            <form>
+              <div class="input-field col s4">
+                <input placeholder="Where do you want to go?" id="search" type="text">
+                <label for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+              </div>
+              <div class="input-field col s4">
+                <input placeholder="What are you looking for?" id="searchType" type="text">
+              </div>
+              <div class="input-field col s4">
+                <input id="submit" type="button" value="Search">
+              </div>
+            </form>
           </div>
         </nav>
-        <div class="row">
-          <nav>
-            <div class="nav-wrapper green darken-4">
-              <form>
-                <div class="input-field col s4">
-                  <input placeholder="Where do you want to go?" id="search" type="search">
-                  <label for="search"><i class="material-icons">search</i></label>
-                  <i class="material-icons">close</i>
-                </div>
-                <div class="input-field col s4">
-                  <input placeholder="What are you looking for?" id="searchType" type="search">
-                </div>
-                <div class="input-field col s4">
-                  <input id="submit" type="button" value="Search">
-                </div>
-              </form>
-            </div>
-          </nav>
-        </div>
+      </div>
+
     {{{body}}}
   </body>
   <footer class="page-footer green darken-4">
