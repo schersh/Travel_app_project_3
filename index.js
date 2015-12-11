@@ -36,7 +36,7 @@ app.get("/", function(req, res){
 });
 // Routes for CRUD actions
 app.get("/user/:id", usersController.show);
-app.get("/city", citiesController.show);
+app.get("/city/:id", citiesController.show);
 // app.get("/city", citiesController.new);
 app.post("/cities", citiesController.create);
 app.get("/cities/edit", citiesController.edit);

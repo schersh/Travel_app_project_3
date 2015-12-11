@@ -8,6 +8,7 @@ var passport = require("passport")
     UserModel.findById(req.params.id, function(err, docs){
       console.log(docs)
       console.log(err)
+      console.log(docs.local.cities);
       res.render("users/show", {currentUser: global.currentUser});
     });
   }

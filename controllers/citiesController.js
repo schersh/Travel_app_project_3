@@ -12,9 +12,8 @@ var citiesController = {
     res.render("cities/new")
   },
   create: function(req, res){
-    var currentUser = req.user.local; 
     currentUser.local.cities.push(
-    newCity = new CityModel({name: req.body.name}))
+    newCity = new CityModel({name: req.body.body}))
     currentUser.save(function(err){
       if(!err){
         console.log("Saved");
@@ -24,7 +23,7 @@ var citiesController = {
     });
     newCity.save(function(err){
       if (!err){
-        res.redirect("/user/" + req.params.id)
+        res.redirect("/user/" + currentUser._id)
       }
     });
   },
@@ -51,11 +50,11 @@ var citiesController = {
     })
   },
   addNote: function(req, res){
-    CityModel.findById(req.params.id, function(err, docs){
+    CityModel.findById(req.params.city_id, function(err, docs){
       docs.notes.push(new NoteModel({body: req.body.body}))
       docs.save(function(err){
         if(!err){
-          res.redirect("/city/" + req.params.id)
+          res.redirect("/city/" + req.params.city_id)
         }
       })
     })

@@ -18,8 +18,8 @@ var UserSchema = new Schema({
   local : {
     email        : String,
     password     : String,
-  },
-  cities: [CitySchema]
+    cities: [CitySchema]
+  }
 });
 
 UserSchema.methods.encrypt = function(password) {

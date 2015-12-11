@@ -3,7 +3,7 @@
   <p class="center-align">{{currentUser.local.email}}</p>
   <h5 class="center-align">My Favorite Cities</h5>
   {{#each currentUser.local.cities}}
-      <div class="container center-align"><a href="/user/{{user._id}}/city/{{_id}}">{{name}}</a></div>
+      <div class="container center-align"><a href="/city/{{_id}}">{{name}}</a></div>
   {{/each}}
   <br>
     <div class="container center-align">
@@ -16,17 +16,21 @@
   </div>
   <div class="col s9 green lighten-4">
     <div class="row">
-      <blockquote>You are currently logged in as {{currentUser.local.email}}. Click on one of your favorite cities to view your saved notes and more travel ideas!</blockquote>
+      <blockquote>Click on one of your favorite cities to view your saved notes and more travel ideas!</blockquote>
     </div>
     <!-- For each city, it will iterate through their notes-->
     <div class="notes-show-each">
-    <h5 class="container center-align">Notes for {{currentUser.city.name}}</h2>
-    {{#each currentUser.cities.notes}}
-      <p class="note">{{body}}</p>
+    <h5 class="container center-align">Notes for {{cities.name}}</h2>
+    {{#each cities.notes}}
+      <ul>
+      <li class="note">{{body}}</li>
+      </ul>
     {{/each}}
     </div>
+    <br>
     <div class="container center-align">
-      <form action="/note" method="post">
+      <form action="/city/{{cities._id}}/notes" method="post">
+        <label>Add a New Travel Note</label>
         <input type="text" name="body">
         <input type="submit">
       </form>
