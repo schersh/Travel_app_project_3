@@ -2,17 +2,14 @@ var ForecastView = function(forecast){
   // set a Forecast model as a property of the view
   this.forecast = forecast;
   // sets the div with class forecast as the domain of this view
-  this.$el = $(".forecast");
+  this.$el = $("#weatherDiv");
 }
-var searchTerms = $("#search").val().split(", ");
-var url = "http://api.wunderground.com/api/af2a6647675184fd/conditions/q/" + searchTerms[1] + "/" + searchTerms[0] + ".json"
-
 
 ForecastView.prototype = {
   // DOM manipulation using a Forecast
   forecastTemplate: function(forecast){
     var html = $("<div></div>");
-    html.append("<h2>Forecast For " + searchTerms[1] + "/" + searchTerms[0] + "</h2>");
+    html.append("<h2>Forecast For " + forecast.city + "," + forecast.state + "</h2>");
     html.append("<img class='artist-photo' src='" + forecast.iconUrl + "'>");
     html.append("<p class='description'>" + forecast.description + "</p>")
     html.append("<p class='tempF'>Current Temp in Fahrenheit: " + forecast.tempF + "°</p>")
