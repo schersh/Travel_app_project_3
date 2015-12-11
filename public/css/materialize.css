@@ -16,9 +16,6 @@
     margin: 0;
     padding: 0;
   }
-  #mapDiv {
-    height: 90%;
-  }
 
 .materialize-red.lighten-5 {
   background-color: #fdeaeb !important; }
