@@ -1,0 +1,22 @@
+<h2>Edit {{cities.name}}</h2>
+<form action="/authors/{{author._id}}?_method=put" method="post">
+<label>Name:</label>
+<input type="text" name="name" value="{{author.name}}">
+<input type="submit">
+</form>
+
+<form method="post" action="/authors/{{../author._id}}?_method=delete">
+    <input type="submit" value="Delete This City">
+</form>
+
+
+<h2>Edit {{notes.body}}</h2>
+<form action="/authors/{{author._id}}?_method=put" method="post">
+<label>Name:</label>
+<input type="text" name="name" value="{{author.name}}">
+<input type="submit">
+</form>
+
+<form method="post" action="/authors/{{../author._id}}?_method=delete">
+    <input type="submit" value="Delete This Note">
+</form>
