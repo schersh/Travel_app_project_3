@@ -3,7 +3,7 @@
   <p class="center-align">{{currentUser.local.email}}</p>
   <h5 class="center-align">My Favorite Cities</h5>
   {{#each currentUser.local.cities}}
-      <div class="container center-align"><a href="/city/{{_id}}">{{name}}</a></div>
+      <div class="container center-align"><a href="/city/{{_id}}">{{name}}</a><a href="/city/{{_id}}/edit"> (edit)</a></div>
   {{/each}}
   <br>
     <div class="container center-align">

@@ -5114,7 +5114,8 @@ nav ul a span.badge {
       left: 16.66667%; }
     .row .col.s3 {
       width: 25%;
-      margin-left: 0; }
+      margin-left: 0;
+      height: 1200px;}
     .row .col.offset-s3 {
       margin-left: 25%; }
     .row .col.pull-s3 {
@@ -5129,7 +5130,7 @@ nav ul a span.badge {
     .row .col.pull-s4 {
       right: 33.33333%; }
     .row .col.push-s4 {
-      left: 33.33333%; }
+      left: 33.33333%;}
     .row .col.s5 {
       width: 41.66667%;
       margin-left: 0; }
@@ -5168,7 +5169,8 @@ nav ul a span.badge {
       left: 66.66667%; }
     .row .col.s9 {
       width: 75%;
-      margin-left: 0; }
+      margin-left: 0;
+      height: 1200px; }
     .row .col.offset-s9 {
       margin-left: 75%; }
     .row .col.pull-s9 {
@@ -6401,8 +6403,8 @@ a.waves-effect .waves-ripple {
   .chip i.material-icons {
     cursor: pointer;
     float: right;
-    font-size: 16px;
-    line-height: 32px;
+    font-size: 12px;
+    line-height: 12px;
     padding-left: 8px; }
 
 .materialboxed {

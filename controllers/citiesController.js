@@ -59,6 +59,17 @@ var citiesController = {
       })
     })
   },
+  removeNote: function(req, res){
+    CityModel.findByIdAndUpdate(req.params.city_id, {
+      $pull:{
+        notes: {_id: req.params.id}
+      }
+    }, function(err, docs){
+      if(!err){
+        res.redirect("/city/" + req.params.city_id)
+      }
+    })
+  }
 }
 
 module.exports = citiesController;
