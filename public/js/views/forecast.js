@@ -9,7 +9,6 @@ ForecastView.prototype = {
   // DOM manipulation using a Forecast
   forecastTemplate: function(forecast){
     var html = $("<div></div>");
-    html.append("<h2>Forecast For " + forecast.city + "," + forecast.state + "</h2>");
     html.append("<img class='artist-photo' src='" + forecast.iconUrl + "'>");
     html.append("<p class='description'>" + forecast.description + "</p>")
     html.append("<p class='tempF'>Current Temp in Fahrenheit: " + forecast.tempF + "°</p>")
