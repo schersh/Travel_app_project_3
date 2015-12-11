@@ -8,10 +8,10 @@ var passport = require("passport")
     UserModel.findById(req.params.id, function(err, docs){
       console.log(docs)
       console.log(err)
+      console.log(docs.local.cities);
       res.render("users/show", {currentUser: global.currentUser});
     });
   }
-
 
   function getSignup(request, response) {
     response.render("signup.hbs", { message: request.flash('signupMessage') });
@@ -19,7 +19,6 @@ var passport = require("passport")
 
   function postSignup(request, response, next) {
     var signupStrategy = passport.authenticate('local-signup', {
-      // TODO change successRedirect : ('/user/' + user.id),
       successRedirect : '/',
       failureRedirect : '/signup',
       failureFlash : true
@@ -33,12 +32,10 @@ var passport = require("passport")
 
   function postLogin(request, response, next) {
     var loginProperty = passport.authenticate('local-login', {
-      // TODO change successRedirect : ('/user/' + req.user.id),
       successRedirect : '/',
       failureRedirect : '/login',
       failureFlash : true
     });
-    console.log(request);
     return loginProperty(request, response, next);
   }
 
@@ -47,9 +44,6 @@ var passport = require("passport")
     request.session.destroy();
 	  response.redirect('/');
 	}
-  // function profilePage(request, response){
-  //   response.render("profile.hbs");
-  // }
 
 module.exports = {
   getLogin: getLogin,
@@ -58,5 +52,4 @@ module.exports = {
   postSignup: postSignup,
   getLogout: getLogout,
   show: show
-  // profile: profile
 };

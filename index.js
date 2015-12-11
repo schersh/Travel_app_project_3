@@ -34,6 +34,27 @@ app.get("/", function(req, res){
   console.log(global.currentUser);
   res.render("index.hbs")
 });
+// Routes for CRUD actions
+app.get("/user/:id", usersController.show);
+app.get("/city/:id", citiesController.show);
+// app.get("/city", citiesController.new);
+app.post("/cities", citiesController.create);
+app.get("/cities/edit", citiesController.edit);
+app.put("/cities/:city_id", citiesController.update)
+app.delete("/cities/city_id", citiesController.delete);
+app.post("/city/:city_id/notes", citiesController.addNote);
+app.get("/notes/new", notesController.new);
+app.post("/notes", notesController.create);
+app.get("/notes/:note_id/edit", notesController.edit);
+app.put("/notes/:note_id", notesController.update);
+app.delete("/notes/note_id", notesController.delete);
+
+// use nested routes?
+//app.patch("user/:user_id/city/:city_id/note", citiesController.updateNote);
+//app.delete("user/:user_id/:city_id/note", citiesController.removeNote);
+// app.get("/user/:user_id/city/:city_id", citiesController.show);
+// app.post("/user/:user_id/city/:city_id/note", citiesController.addCity);
+// app.get("user/:user_id", usersController.addCity)
 
 // function authenticatedUser(req, res, next) {
 //   // If the user is authenticated, then we continue the execution
@@ -42,15 +63,11 @@ app.get("/", function(req, res){
 //   // Otherwise the request is always redirected to the home page
 //   res.redirect('/');
 // };
-
 app.get("/signup", usersController.getSignup);
 app.post("/signup", usersController.postSignup);
 app.get("/login", usersController.getLogin);
 app.post("/login", usersController.postLogin);
 app.get("/logout", usersController.getLogout);
-// TODO change usersController.show successfully to '/user/{{_id}}'
-app.get("/user/:userId", usersController.show);
-// app.get(authenticatedUser, usersController.profilePage);
 
 // app server located on port 4000
 app.listen(4000, function(){
