@@ -4,6 +4,9 @@
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
 
+.brand-logo {
+  font-family: 'Playfair Display SC', serif;
+}
 
   html {
     height: 100%
