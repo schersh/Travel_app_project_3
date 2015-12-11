@@ -1,0 +1,12 @@
+<div class="container">
+<form action="/cities/{{cities._id}}?_method=put" method="post">
+<label>Edit {{cities.name}}</label>
+<input type="text" name="name" value="{{cities.name}}">
+<input type="submit">
+</form>
+<br>
+<form method="post" action="/cities/{{cities._id}}?_method=delete">
+    <input type="submit" value="Delete This City">
+</form>
+
+</div>
