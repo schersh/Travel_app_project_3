@@ -14,9 +14,11 @@
     padding: 0;
   }
   #mapDiv {
-    height: 90%;
+    height: 688px;
+    width: 950px;
+    margin-left: 2px;
   }
-
+  
 .materialize-red.lighten-5 {
   background-color: #fdeaeb !important; }
 
