@@ -15,7 +15,7 @@ app.set("view engine", "hbs");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
-app.use(session({secret: "yo", resave: true, saveUninitialized: true}));
+app.use(session({secret: "yo", resave: true, saveUninitialized: true})); //ERICA: This should probably be moved to an env variable
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -73,3 +73,5 @@ app.get("/logout", usersController.getLogout);
 app.listen(4000, function(){
   console.log("app listening on port 4000")
 })
+
+//ERICA: Don't forget to remove commented-out code before you submit or deploy! Other than that, nicely organized and commented index.js

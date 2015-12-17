@@ -57,7 +57,7 @@
        }
      });
 
-     // This frustrated me.
+     // This frustrated me. //ERICA: I'd love to hear more about your process here.
      google.maps.event.addListener(marker, 'click', function() {
        service.getDetails(place, function(result, status) {
          if (status !== google.maps.places.PlacesServiceStatus.OK) {
