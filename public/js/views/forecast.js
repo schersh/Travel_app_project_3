@@ -24,3 +24,5 @@ ForecastView.prototype = {
     this.$el.empty()
   }
 }
+
+//ERICA: Nicely done! This and the forecast model both...

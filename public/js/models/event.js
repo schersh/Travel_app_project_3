@@ -3,6 +3,7 @@ var Event = function(info){
   this.state = info.state;
 }
 
+//ERICA: loadForecast? self.tempF? Careful about copying and pasting code without changing details...
 Event.prototype.loadForecast = function(){
   var self = this
   // url to hit the API endpoint, make sure to put your key in!

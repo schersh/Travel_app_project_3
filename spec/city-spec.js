@@ -14,7 +14,7 @@
 // });
 
 var City = require("../models/city");
-
+//ERICA: Woot!
 describe ("a city", function(){
   it ("should have a name", function(){
     var newYork = new City("New York");
